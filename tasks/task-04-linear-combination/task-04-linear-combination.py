@@ -20,7 +20,13 @@ def linear_combination(i1: np.ndarray, i2: np.ndarray, a1: float, a2: float) -> 
         raise ValueError("Input images must have the same dimensions.")
 
     ### START CODE HERE ###
-    ### TODO
+
+    i_out = np.clip(a1 * i1 + a2 * i2, 0, 255).astype(i1.dtype)
+
+    cv2.imshow(i_out)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
     ### END CODE HERE ###
 
     return None
