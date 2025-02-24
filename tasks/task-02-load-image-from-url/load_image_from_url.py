@@ -1,6 +1,7 @@
 import argparse
 import numpy as np
 import cv2 as cv
+import urllib.request
 
 def load_image_from_url(url, **kwargs):
     """
@@ -15,7 +16,11 @@ def load_image_from_url(url, **kwargs):
     """
     
     ### START CODE HERE ###
-    ### TODO
+
+    req = urllib.request.urlopen(url)
+    arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
+    image = cv.imdecode(arr, **kwargs)
+
     ### END CODE HERE ###
     
     return image
